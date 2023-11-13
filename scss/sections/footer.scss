@@ -1,0 +1,323 @@
+@use '../colors';
+
+footer {
+  padding: 60px 30px 0;
+  background-color: colors.$dark-blue;
+}
+
+.footer__grid {
+  margin: 0 auto;
+
+  max-width: 1140px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 24px;
+
+  grid-template-areas: 
+    "motto            motto             motto             motto"
+    "left             left              right             right"
+    "cardsnapps       cardsnapps        cardsnapps        cardsnapps"
+    "docs             docs              social            social";
+}
+
+.footer__motto {
+  margin-bottom: 60px;
+
+  width: 267px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  grid-area: motto;
+
+  img {
+    height: 44px;
+  }
+
+  p {
+    color: colors.$white;
+    font-size: 22px; 
+    line-height: 120%;
+
+    strong { font-weight: bold;}
+  }
+}
+
+.footer__leftcol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "opportunities solutions";
+  column-gap: 24px;
+
+  grid-area: left;
+  
+  .footer__opportunities {
+    grid-area: opportunities;
+  }
+
+  .footer__solutions {
+    grid-area: solutions;
+  }
+}
+
+.footer__rightcol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "resources about";
+  column-gap: 24px;
+
+  grid-area: right;
+
+  .footer__resources {
+    grid-area: resources;
+  }
+
+  .footer__about {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 25px;
+  
+    grid-area: about;
+  
+    .footer__contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .column__heading#contacts-column { display: none; }
+
+      .phone-number { color: colors.$white; }
+    }
+  }
+}
+
+.footer__cards-and-apps {
+  margin-top: 100px;
+
+  display: flex;
+  justify-content: space-between;
+
+  grid-area: cardsnapps;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10); 
+
+  .footer__cards {
+    margin: 20px 0;
+
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer__apps {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+
+    a {
+      padding: 12px; 
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      border: 2px solid rgba(255, 255, 255, 0.20); 
+      border-radius: 8px; 
+
+      color: colors.$white;
+      font-size: 14px; 
+
+      img { height: 20px;}
+    }
+  }
+}
+
+.footer__docs {
+  margin: 25px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  grid-area: docs;
+
+  color: colors.$half-light;
+  font-size: 14px; 
+  line-height: 120%;
+
+  p { color: colors.$white; }
+
+  a:hover {
+    color: colors.$white;
+  }
+}
+
+.footer__social {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 30px;
+
+  grid-area: social;
+
+  img { height: 24px;}
+}
+
+
+
+.column {
+  font-size: 16px; 
+  line-height: 120%;
+  
+  .column__heading {
+    margin-bottom: 15px;
+
+    color: colors.$white;
+
+    p { font-weight: bold;}
+
+    button { 
+      cursor: pointer;
+
+      width: 100%;
+      height: auto;
+      
+      display: none; 
+      justify-content: space-between;
+      align-items: center;
+      
+      color: colors.$white;
+      font-size: 20px; 
+      line-height: 120%;
+      font-weight: bold;
+
+      background-color: rgba(255, 255, 255, 0);
+      border: 0;
+
+      img { height: 30px;}
+    }
+  }
+
+  .column__elements {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    overflow: hidden;
+    color: colors.$blueish-grey; 
+  }
+
+  .column__elements a:hover {
+    color: colors.$white;
+  }
+}
+
+
+@media screen and (max-width: 990px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+      "motto      social"
+      "left       right"
+      "cardsnapps cardsnapps"
+      "docs       docs";
+
+      column-gap: 20px;
+  }
+
+  .footer__motto {
+    margin-bottom: 50px;
+  }
+
+  .footer__social {
+    align-items: start;
+  }
+
+  .footer__leftcol {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer__rightcol {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .footer__about {
+      gap: 40px;
+    }
+  }
+
+  .footer__cards-and-apps {
+    margin-top: 80px;
+
+    border: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    padding: 50px 15px 0;
+  }
+
+  .footer__motto {
+    margin-bottom: 40px;
+  }
+  
+  .footer__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer__leftcol,
+  .footer__rightcol,
+  .footer__rightcol .footer__about {
+    gap: 15px;
+  }
+  .footer__rightcol .footer__about .footer__contacts {
+    gap: 0;
+  }
+
+  .collapsible > .column__elements {
+    height: 0;
+  }
+  
+
+  .column .column__heading {
+    margin: 0;
+
+    > button + p {
+      display: none;
+    }
+    button { display: flex; }
+  }
+
+  .column .column__elements {
+    margin-top: 15px;
+  }
+
+  .footer__rightcol .footer__about .footer__contacts .column__heading#contacts-column { display: block;}
+
+  .footer__cards-and-apps {
+    margin: 15px 0;
+
+    .footer__cards { display: none;}
+  }
+
+  .footer__social {
+    margin-top: 10px;
+
+    justify-content: start;
+  }
+
+  .footer__docs {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+}

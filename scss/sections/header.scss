@@ -1,0 +1,150 @@
+@use '../colors';
+@use '../components/button.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+
+  z-index: 9999;
+
+  font-size: 18px;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+  margin: 0px 30px
+}
+
+.header__leftpart {
+  display: flex;
+  align-items: center;
+
+  flex-basis: 10000px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8.48px;
+}
+
+.header__whitespace {
+  flex-basis: 100px;
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  a {
+    line-height: 110%;
+    color: colors.$black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+.header__rightpart {
+  display: flex;
+}
+
+.header__menu-mobile {
+  display: none;
+
+  background-color: inherit;
+  border: 0;
+}
+
+.header__login-btn {
+  margin-right: 10px;
+}
+
+.header__demo-signup-btn {
+  margin-right: 10px;
+  padding: 10px 18px 10px 15px;
+
+  gap: 8px;
+
+  background-color: inherit;
+
+  img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+  }
+
+  p {
+    color: colors.$dark-blue;
+    font-size: 18px;
+
+    white-space: nowrap;
+  }
+}
+
+.header__demo-signup-btn:hover {  
+  backdrop-filter: brightness(0.9);
+}
+
+.header__menu-mobile:hover {
+  cursor: pointer;
+  filter: drop-shadow(0 0 1px colors.$black);
+}
+
+.header__menu a:hover {
+  text-shadow: 0 0 1px colors.$black;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1420px) {
+  .header__menu {
+    display: none;
+  }
+  
+  .header__menu-mobile {
+    display: block;
+  }
+
+  .header__signup-btn {
+    margin-right: 30px;
+  }
+  
+  .header__demo-signup-btn {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .header__nav {
+    justify-content: flex-end;
+
+    height: 70px;
+    margin: 0px 15px
+  }
+
+  .header__leftpart {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .header__login-btn, 
+  .header__signup-btn {
+    display: none;
+  }
+}

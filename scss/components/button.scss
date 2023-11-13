@@ -1,0 +1,58 @@
+@use '../colors.scss';
+
+.button {
+  padding: 12px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border: 0;
+  border-radius: 4px;
+  background: colors.$pink;
+
+  color: colors.$yellow;
+  font-size: 18px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button_large {
+  padding: 18px 28px; 
+  font-size: 24px; 
+}
+
+
+.button_white {
+  border: 1px solid rgba(5, 21, 52, 0.30);
+  background: colors.$white;
+  
+  color: colors.$dark-blue;
+}
+
+.button_white:hover {
+  background: colors.$little-dark-white;
+}
+
+.button_blue {
+  background: colors.$light-blue;
+  
+  color: colors.$white;
+}
+
+.button_blue:hover {
+  background: colors.$little-dark-blue;
+}
+
+.button_green {
+  background: colors.$green;
+  
+  color: colors.$white;
+}
+
+.button_green:hover {
+  background: colors.$little-dark-green;
+}

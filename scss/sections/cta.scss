@@ -1,0 +1,78 @@
+@use '../colors.scss';
+
+.cta {
+  margin: 250px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  gap: 30px;
+
+  .cta__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    h2 {
+      max-width: 946px;
+      width: 100%;
+
+      text-align: center;
+
+      color: colors.$dark-blue; 
+      font-size: 55px;
+      font-weight: bold;
+      line-height: 110%;
+      letter-spacing: -0.275px; 
+    }
+
+    p {
+      max-width: 752px;
+      width: 100%;
+
+      text-align: center; 
+
+      color: colors.$dark-blue; 
+      font-size: 22px; 
+      line-height: 150%;
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .cta {
+    margin: 200px 30px;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .cta {
+    margin: 100px 15px;
+
+    gap: 20px;
+
+    .cta__text {
+      gap: 10px;
+  
+      h2 {
+        font-size: 30px; 
+        line-height: 120%;
+        letter-spacing: -0.15px; 
+
+        text-align: start;
+      }
+  
+      p {
+        text-align: start;
+        
+        font-size: 18px; 
+      }
+    }
+
+    .cta__btn {
+      align-self: stretch;
+    }
+  }
+}
