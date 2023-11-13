@@ -411,8 +411,10 @@ img {
   }
   .product-info__1 {
     flex-direction: column;
-    gap: 20px img;
-    gap-width: 150px;
+    gap: 20px;
+  }
+  .product-info__1 img {
+    width: 150px;
   }
   .product-info__1 p {
     font-size: 22px;
