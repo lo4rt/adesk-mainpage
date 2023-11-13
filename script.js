@@ -32,16 +32,21 @@ function expandList(element) {
 
 document.querySelectorAll('.collapsible').forEach((column) => {
   let btn = column.querySelector('button');
+  let btnImage = btn.querySelector('img');
 
   btn.addEventListener('click', function(e) {
-    let list = this.querySelector('.column__elements');
+    let [column, btnImage] = this;
+    
+    let list = column.querySelector('.column__elements');
     let isCollapsed = list.getAttribute('data-collapsed') === 'true';
 
     if(isCollapsed) {
+      btnImage.classList.add('rotate');
       expandList(list)
     } else {
+      btnImage.classList.remove('rotate');
       collapseList(list)
     }
-  }.bind(column))
+  }.bind([column, btnImage]))
 
 })
